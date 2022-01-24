@@ -53,3 +53,10 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #000000;
 }
+
+.words{
+  font-size: 13px;
+  text-align: right;
+  color: #777777;
+
+}

@@ -1,13 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+  <form class="post-form" method="POST">{% csrf_token %}
+    <input type="text" placeholder="検索" name="q">
+    <button type="submit" name="save btn btn-default">検索</button>
+  </form>
   {% for post in posts %}
       <div class="post">
           <div class="date">
               <p>published: {{ post.published_date }}</p>
           </div>
           <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-          <p>{{ post.text|linebreaksbr }}</p>
+          <p>{{ post.text|truncatechars:30 }}</p>
+          <p class="words">検索words: {{ post.words}}</p>
       </div>
   {% endfor %}
 {% endblock %}
